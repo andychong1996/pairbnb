@@ -1,0 +1,11 @@
+<header>
+  <% if @user && user_signed_in? %>
+    <h1>Hi <%= @user.first_name.capitalize %>, Welcome to PairBnB</h1>
+  <% else %>
+    <h1>Hi, Welcome to PairBnB</h1>
+  <% end %>
+</header>
+
+<div>
+
+</div>
