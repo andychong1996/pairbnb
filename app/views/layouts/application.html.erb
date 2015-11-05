@@ -12,13 +12,19 @@
   rel="stylesheet" type="text/css" />
 </head>
 <body>
-<nav>
-  <%= link_to "PairBnB", root_path %>
-    <%= link_to "Sign In", new_session_path %>
-    <%= link_to "Sign Up", sign_up_path %>
-</nav>
+  <nav>
+    <% if !user_logged_in? %>
+      <%= link_to "PairBnB", root_path %>
+      <%= link_to "Log In", new_session_path %>
+      <%= link_to 'Sign In with Facebook', '/auth/facebook' %>
+      <%= link_to "Sign Up", sign_up_form_path %>
+    <% else %>
+      <%= link_to "PairBnB", root_path %>
+      <%= link_to "Log Out", session_path(current_user), method: :delete %>
+    <% end %>
+  </nav>
 
-<%= yield %>
+  <%= yield %>
 
 </body>
 </html>

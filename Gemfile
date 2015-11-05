@@ -29,6 +29,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Use simple form
 gem 'simple_form'
 
+# Use omniauth-facebook
+gem 'omniauth-facebook'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
