@@ -23,7 +23,11 @@
       <%= link_to "Log Out", session_path(current_user), method: :delete %>
     <% end %>
   </nav>
-
+  <div>
+    <% flash.each do |k, v| %>
+      <p><%= #{v}" %></p>
+    <% end %>
+  </div>
   <%= yield %>
 
 </body>

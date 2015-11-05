@@ -2,9 +2,8 @@
 
 <% if @current_user && @current_user.errors.present? %>
   <ul>
-    <% @current_user.errors.full_messages.each do |error| %>
-      <li><%= error %></li>
-    <% end %>
+    <% @errors = @current_user.errors %>
+    <%= render "shared/errors_msg_loop" %>
   </ul>
 <% end %>
 
