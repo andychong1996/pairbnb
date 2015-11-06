@@ -11,3 +11,6 @@
 /log/*
 !/log/.keep
 /tmp
+
+#Ignore facebook.yml
+/config/facebook.yml
