@@ -2,12 +2,15 @@
 
 </header>
 
+<div class="top-buffer">
+</div>
+
 <div class="row">
   <div class="col-md-4">
   </div>
   <div class="col-md-4">
     <header>
-      <h1>Sign In</h1>
+      <h1><strong>Sign In</strong></h1>
     </header>
     <%= simple_form_for @current_user, url: sessions_path do |f| %>
       <%= f.input :email %>

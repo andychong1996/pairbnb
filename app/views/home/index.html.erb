@@ -2,7 +2,10 @@
   <% if current_user && user_logged_in? %>
     <h1>Hi <%= current_user.first_name.capitalize %>, Welcome to PairBnB</h1>
   <% else %>
-    <h1>Hi, Welcome to PairBnB</h1>
+    <h1>PairBnB</h1>
+    <p>
+      No more to travel alone.
+    </p>
   <% end %>
 </header>
 

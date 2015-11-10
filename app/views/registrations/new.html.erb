@@ -3,7 +3,7 @@
 <% if @current_user && @current_user.errors.present? %>
   <ul>
     <% @errors = @current_user.errors %>
-    <%= render "shared/errors_msg_loop" %>
+    <%= render "shared/partials/errors_msg_loop" %>
   </ul>
 <% end %>
 
