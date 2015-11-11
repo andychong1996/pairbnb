@@ -30,6 +30,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use simple form
 gem 'simple_form'
+# gem 'client_side_validations'
+# gem 'client_side_validations-simple_for', '~> 3.1.0'
 
 # Use omniauth-facebook
 gem 'omniauth-facebook'

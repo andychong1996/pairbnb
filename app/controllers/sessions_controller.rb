@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
       redirect_to users_path
     else
       flash[:error] = "Email or password is invalid"
-      redirect_to sign_up_form_path
+      redirect_to new_session_path
     end
   end
 

@@ -1,46 +1,23 @@
-<h1>Sign up</h1>
 
-<% if @current_user && @current_user.errors.present? %>
-  <ul>
-    <% @errors = @current_user.errors %>
-    <%= render "shared/partials/errors_msg_loop" %>
-  </ul>
-<% end %>
+<div class="registration_body">
 
-<%= form_for @current_user, url: sign_up_path do |f| %>
+  <h1>Sign up</h1>
 
-  <div>
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
-  </div>
+  <% if @current_user && @current_user.errors.present? %>
+    <ul>
+      <% @errors = @current_user.errors %>
+      <%= render "shared/partials/errors_msg_loop" %>
+    </ul>
+  <% end %>
 
-  <div>
-      <%= f.label :last_name %>
-      <%= f.text_field :last_name %>
-  </div>
+  <%= simple_form_for @current_user, html: {class: "hero-form"}, url: sign_up_path do |f| %>
+    <%= f.input :first_name , required: true%>
+    <%= f.input :last_name %>
+    <%= f.input :user_name %>
+    <%= f.input :email %>
+    <%= f.input :password %>
+    <%= f.input :password_confirmation %>
+    <%= f.button :submit, value: "Sign Up" %>
+  <% end %>
 
-  <div>
-    <%= f.label :username %>
-    <%= f.text_field :username %>
-  </div>
-
-  <div>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </div>
-
-  <div>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </div>
-
-  <div>
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
-  </div>
-
-  <div>
-    <%= f.submit "Sign Up!" %>
-  </div>
-
-<% end %>
+</div>

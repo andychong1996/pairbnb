@@ -1,3 +1,6 @@
 <% @errors.full_messages.each do |error| %>
-  <li><%= error %></li>
+  <div class="alert alert-warning alert-dismissible fade in navbar-buffer" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <strong><%= error %></strong>
+  </div>
 <% end %>

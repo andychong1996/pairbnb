@@ -1,6 +1,65 @@
 // Place all the styles related to the Sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "color-palette";
+
 .top-buffer{
-  padding-top: 150px;
+  padding-top: 15%;
+}
+
+
+#login_body{
+  background-image: url(cool-wodden-wall-graffiti-h-w-ibackgroundz.jpg);
+  background-size: cover;
+  background-position: center center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.form-header{
+  text-align: center;
+  h1{
+    strong{
+      font-size: 50px;
+
+      color: $main-color;
+    }
+  }
+}
+
+.form-block{
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 2%;
+}
+.hero-form{
+  text-align: center;
+  input{
+    margin-top: 30px;
+    border-color: $main-color;
+  }
+  .btn-form-submit{
+    color: $main-color;
+    background-color: rgba(255, 255, 255, 0.3);
+    width: 25%;
+    margin-top: 20px;
+  }
+  .btn-form-submit:hover{
+    color: $main-color;
+    border-color: $main-color;
+  }
+}
+
+.line-breaker{
+  h2{
+    width: 100%;
+    border-top: 1px solid rgb(254, 254, 254);
+    padding-bottom: 10px;
+  }
+}
+
+.social-button{
+  padding-bottom: 20px;
+  span{
+    text-align: center;
+  }
 }
