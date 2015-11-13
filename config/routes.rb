@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   get 'auth/:provider/callback', to: 'sessions#create_fb_session'
   get 'auth/failure', to: redirect('/')
 
+  resources :listings, except: [:create]
+  post "/listings/create", to: "listings#create", as: "create_listing"
 end

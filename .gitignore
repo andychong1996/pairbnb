@@ -14,3 +14,6 @@
 
 #Ignore facebook.yml
 /config/facebook.yml
+
+#Ignore all yml
+/config/*.yml

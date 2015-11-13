@@ -15,11 +15,40 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
-
+ @import "color-palette";
 body{
   font-family: 'Arvo', serif;
 }
 
 .navbar-buffer{
   margin-top: 50px;
+}
+.add-border{
+  border: 1px solid $main-color;
+  border-radius: 5px;
+}
+.navbar-default{
+  background-color: rgba(255, 255, 255, 0.3);
+  border-color: rgba(56, 251, 18, 0);
+  .navbar-brand{
+    color: $main-color;
+  }
+  .navbar-toggle:focus{
+    background-color: rgba(108, 91, 111, 0.3);
+  }
+  .navbar-toggle{
+    .icon-bar{
+      background-color: $main-color;
+    }
+  }
+  .navbar-collapse{
+    border-color: rgba(149, 224, 127, 0);
+
+  }
+  .navbar-nav{
+
+    li a{
+      color: $main-color;
+    }
+  }
 }

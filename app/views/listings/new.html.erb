@@ -1,0 +1,24 @@
+<header>
+
+</header>
+
+<div class="row">
+  <div class="col-sm-4 col-md-4 col-lg-4">
+  </div>
+  <div class="listing-body col-sm-4 col-md-4 col-lg-4">
+    <%= simple_form_for @current_listing, url: create_listing_path do |f|%>
+      <%= f.input :title, required: true%>
+      <%= f.input :description, required: true %>
+      <%= f.input :price, required: true %>
+      <%= f.input :home_type, default: home_types[0], collection: home_types %>
+      <%= f.input :room_type, default: room_types[0], collection: room_types %>
+      <%= f.input :accommodates, default: 1, collection: 1..16 %>
+      <%= f.input :country, default: countries_list[0], collection: countries_list, label: "Country" %>
+      <%= f.button :submit, value: "Submit" %>
+
+    <% end %>
+
+  </div>
+  <div class="col-sm-4 col-md-4 col-lg-4">
+  </div>
+</div>

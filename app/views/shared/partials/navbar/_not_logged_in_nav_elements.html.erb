@@ -1,8 +1,4 @@
 
-
-<div class="navbar-header">
-  <%= link_to "PairBnB", root_path %>
-  <%= link_to "Sign In", new_session_path %>
-  
-  <%= link_to "Sign Up", sign_up_form_path %>
-</div>
+<li><%= link_to "List Your Space!", new_listing_path, class: "add-border" %></li>
+<li><%= link_to "Sign Up", sign_up_form_path %></li>
+<li><%= link_to "Sign In", new_session_path %></li>
