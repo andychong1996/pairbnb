@@ -12,4 +12,6 @@ Rails.application.routes.draw do
 
   resources :listings, except: [:create]
   post "/listings/create", to: "listings#create", as: "create_listing"
+
+  resources :listings_search, only: [:index, :create]
 end

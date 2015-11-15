@@ -17,10 +17,15 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 #Use countries gem
 gem 'countries', :require => 'countries/global'
+# Use city-state
+gem 'city-state'
 # Use carrierwave
 gem 'carrierwave'
 # Use cloudinary
 gem 'cloudinary'
+
+# Use pg_search
+gem 'pg_search'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

@@ -14,7 +14,7 @@ class ListingsController <ApplicationController
     if current_user
       # set current listing object's user id to current user id
       @current_listing.user_id = current_user.id
-      # if currrent listing is valid and saved,  
+      # if currrent listing is valid and saved,
       if @current_listing.valid? && @current_listing.save
         #  redirect to home
         redirect_to @current_listing
@@ -34,11 +34,11 @@ class ListingsController <ApplicationController
 
   def listing_params
     # strong params
-    params.require(:listing).permit(:title, :description, :price, :home_type, :room_type, :accommodates, :country)
+    params.require(:listing).permit(:title, :description, :price, :home_type, :room_type, :accommodates, :address, :city, :postal_code, :state, :country)
   end
 
   def show
-  @current_listing = Listing.find(params[:id])
+    @current_listing = Listing.find(params[:id])
   end
 
 end

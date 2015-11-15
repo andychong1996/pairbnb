@@ -14,8 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-$(document).ready(function(){
-  $.validate({
-    modules : 'security, html5'
-  });
-});
+// $(document).ready(function(){
+//   $.validate({
+//     modules : 'security, html5'
+//   });
+// });

@@ -20,21 +20,30 @@ body{
   font-family: 'Arvo', serif;
 }
 
+// add top padding to div after nav bar
 .navbar-buffer{
-  margin-top: 50px;
+  margin-top: 60px;
 }
+// add border to element
 .add-border{
   border: 1px solid $main-color;
   border-radius: 5px;
 }
+// delete border to element in small screen
+@media (max-width: 767px) {
+  .add-border{
+    border: none;
+  }
+}
+// nav bar
 .navbar-default{
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.5);
   border-color: rgba(56, 251, 18, 0);
   .navbar-brand{
     color: $main-color;
   }
   .navbar-toggle:focus{
-    background-color: rgba(108, 91, 111, 0.3);
+    background-color: rgba(108, 91, 111, 0.5);
   }
   .navbar-toggle{
     .icon-bar{
@@ -43,12 +52,28 @@ body{
   }
   .navbar-collapse{
     border-color: rgba(149, 224, 127, 0);
-
   }
   .navbar-nav{
-
-    li a{
-      color: $main-color;
+    li{
+      a:hover{
+        color: $main-color;
+      }
+      a{
+        .navbar_icon{
+          border-radius: 50px;
+          border: 2px solid black;
+        }
+        color: $main-color;
+      }
+    }
+// nav bar dropdown menu
+    .open{
+      a:focus{
+        color: $main-color;
+      }
+      .dropdown-menu li a {
+        color: $main-color;
+      }
     }
   }
 }

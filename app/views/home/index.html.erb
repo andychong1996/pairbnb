@@ -2,8 +2,23 @@
   <div class="navbar-buffer">
 
   </div>
+  <div class="header-unit">
+  <div id="video-container">
+  <video autoplay loop class="fillWidth">
+    <source src="Paris.webm" type="video/webm">
+    <source src="Paris.mp4" type="video/mp4">
+  Your browser does not support the video tag. I suggest you upgrade your browser.
+  </video>
+  </div><!-- end video-container -->
+  </div><!-- end .header-unit -->
+
+  
   <% if current_user && user_logged_in? %>
     <h1>Hi <%= current_user.first_name.capitalize %>, Welcome to PairBnB</h1>
+    <h1>PairBnB</h1>
+    <p>
+      No more to travel alone.
+    </p>
   <% else %>
     <h1>PairBnB</h1>
     <p>

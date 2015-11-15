@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, only: [:edit]
+  # before_filter :authenticate_user!, only: [:edit]
   def index
     redirect_to root_path
   end
@@ -12,7 +12,6 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    byebug
    if @user.update_attributes(user_params)
      render 'show'
    else

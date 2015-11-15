@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
       user.uid = auth.uid
       user.first_name = auth.info.first_name
       user.last_name = auth.info.last_name
+      user.facebook_photo = auth.info.image
       user.password = SecureRandom.hex
       user.email =  auth.info.email
       user.oauth_token = auth.credentials.token

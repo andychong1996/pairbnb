@@ -13,6 +13,10 @@
       <%= f.input :home_type, default: home_types[0], collection: home_types %>
       <%= f.input :room_type, default: room_types[0], collection: room_types %>
       <%= f.input :accommodates, default: 1, collection: 1..16 %>
+      <%= f.input :address, required:true %>
+      <%= f.input :city, required:true %>
+      <%= f.input :postal_code, label: "Postal code" %>
+      <%= f.input :state, required: true %>
       <%= f.input :country, default: countries_list[0], collection: countries_list, label: "Country" %>
       <%= f.button :submit, value: "Submit" %>
 
