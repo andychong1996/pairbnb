@@ -1,12 +1,19 @@
 <div class="navbar-buffer">
 
 </div>
-<header>
-<h1><%= @current_listing.title %></h1>
-</header>
+<div class="container">
+  <header>
+  <h1><%= @current_listing.title %></h1>
+  </header>
+  <% if (@current_listing.user_id).to_i == current_user.id %>
+    <%= link_to "Edit Listing", edit_listing_path, class: "btn btn-info" %>
+  <% else %>
 
-<div class="listing-body">
-  <p>
-    <%= @current_listing.description %>
-  </p>
+  <% end %>
+  <div class="listing-body">
+    <h4>Description:</h4>
+    <p>
+      <%= @current_listing.description %>
+    </p>
+  </div>
 </div>

@@ -1,6 +1,7 @@
 class ListingsController <ApplicationController
 
   def index
+    @listings = current_user.listings
   end
 
   def new
@@ -8,7 +9,7 @@ class ListingsController <ApplicationController
   end
 
   def create
-    # create new llisting object
+    # create new listing object
     @current_listing = Listing.new(listing_params)
     # if there're a current user
     if current_user
@@ -32,13 +33,28 @@ class ListingsController <ApplicationController
     # end outer if
   end
 
-  def listing_params
-    # strong params
-    params.require(:listing).permit(:title, :description, :price, :home_type, :room_type, :accommodates, :address, :city, :postal_code, :state, :country)
-  end
-
   def show
     @current_listing = Listing.find(params[:id])
   end
+
+  def edit
+    @current_listing = Listing.find(params[:id])
+  end
+
+  def update
+    byebug
+   if @current_listing.update_attributes(listing_params)
+     render 'show'
+   else
+     render 'edit'
+   end
+  end
+
+  def listing_params
+    # strong params
+    params.require(:listing).permit(:photos, :title, :description, :price, :home_type, :room_type, :accommodates, :address, :city, :postal_code, :state, :country)
+  end
+
+
 
 end

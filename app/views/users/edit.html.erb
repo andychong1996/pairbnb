@@ -8,22 +8,27 @@
   </ul>
 <% end %>
 <div class="row">
-  <div class="col-lg-4 col-md-4 col-sm-4">
+  <div class="col-lg-2 col-md-2 col-sm-2">
   </div>
-  <div class="col-lg-4 col-md-4 col-sm-4">
-
+  <div class="col-lg-8 col-md-8 col-sm-8">
+    <hr>
+    <%= link_to "Back to Home", user_path(current_user), class: "btn btn-info" %>
     <%= simple_form_for current_user, html: {class: "hero-form", multipart: true}, url: user_path, method: :patch do |f| %>
-    <%= f.input :avatar %>
-    <%= f.input :first_name, required: false  %>
-    <%= f.input :last_name, required: false %>
-    <%= f.input :user_name, required: false %>
-    <%= f.input :email, required: false %>
-    <%= f.input :password, required: false%>
-    <%= f.input :password_confirmation, required: false %>
-    <%= f.button :submit, value: "Update" %>
-
+      <label>Current Avatar: </label>
+      <%= image_tag(current_user.avatar_url(:standard)) if current_user.avatar? %>
+      <%= f.input :avatar, label: false, multiple: true %>
+      <%= f.input :remove_avatar, as: :boolean, boolean_style: :inline %>
+      <%= f.input :first_name, required: false  %>
+      <%= f.input :last_name, required: false %>
+      <%= f.input :user_name, required: false %>
+      <%= f.input :email, required: false %>
+      <%= f.input :password, required: false%>
+      <%= f.input :password_confirmation, required: false %>
+      <%= f.button :submit, value: "Update" %>
     <% end %>
+
+
   </div>
-  <div class="col-lg-4 col-md-4 col-sm-4">
+  <div class="col-lg-2 col-md-2 col-sm-2">
   </div>
 </div>

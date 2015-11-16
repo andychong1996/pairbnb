@@ -1,17 +1,20 @@
 
-<li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            <span id="navbar-name"><%= current_user.first_name.capitalize %></span>
+<li><%= link_to "Your Listings", listings_path %></li>
 
-            <% if current_user.facebook_photo.nil? %>
-              <%= image_tag(current_user.avatar_url(:thumbnail), alt: "user profile photo", width: 30, height: 30, class: "navbar_icon") %>
-            <% else %>
-              <%= image_tag(current_user.facebook_photo, alt: "user facebook photo", width: 30, height: 30, class: "navbar_icon") %>
-            <% end %>
-            <span class="caret"></span>
-          </a>
-          <ul class="dropdown-menu">
-            <li><%= link_to "User Profile", user_path(current_user) %></li>
-            <li><%= link_to "Log Out", session_path(current_user), method: :delete %></li>
-          </ul>
-        </li>
+
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+    <span id="navbar-name"><%= current_user.first_name.capitalize %></span>
+
+    <% if current_user.facebook_photo.nil? %>
+      <%= image_tag(current_user.avatar_url(:thumbnail), alt: "user profile photo", width: 30, height: 30, class: "navbar_icon") %>
+    <% else %>
+      <%= image_tag(current_user.facebook_photo, alt: "user facebook photo", width: 30, height: 30, class: "navbar_icon") %>
+    <% end %>
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu">
+    <li><%= link_to "User Profile", user_path(current_user) %></li>
+    <li><%= link_to "Log Out", session_path(current_user), method: :delete %></li>
+  </ul>
+</li>

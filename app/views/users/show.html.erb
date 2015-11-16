@@ -2,18 +2,21 @@
 
 </div>
 
-<header>
-  <h1><%= current_user.first_name.capitalize+" "+current_user.last_name.capitalize + " Profile"%></h1>
-  <span><%= link_to "Edit Profile", edit_user_path, class: "btn btn-info"%></span>
-</header>
+<div class="container">
+  <header>
+    <h1><%= current_user.first_name.capitalize+" "+current_user.last_name.capitalize + "'s Profile"%></h1>
+    <span><%= link_to "Edit Profile", edit_user_path, class: "btn btn-info"%></span>
+  </header>
 
-<div class="profile-body">
-  <h3>Profile picture:</h3>
-  <% unless current_user.avatar_url.nil? %>
-    <%= image_tag( current_user.avatar_url(:standard) ) %>
-    <br />
-  <% end %>
-  <div class="profile-content">
-    <h3>First Name: <span><%= current_user.first_name %></span></h3>
+  <div class="profile-body">
+    <h3>Profile picture:</h3>
+    <% unless current_user.avatar_url.nil? %>
+      <%= image_tag( current_user.avatar_url(:standard) ) %>
+      <br />
+    <% end %>
+    <div class="profile-content">
+      <h3>First Name: <span><%= current_user.first_name %></span></h3>
+      <h3>Last Name: <span><%= current_user.last_name %></span></h3>
+    </div>
   </div>
 </div>

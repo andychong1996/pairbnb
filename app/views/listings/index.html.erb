@@ -1,0 +1,19 @@
+
+<div class="container">
+  <header class="navbar-buffer">
+    <h2>Your listings: </h2>
+  </header>
+
+  <div class="user-listings-body">
+    <% @listings.each do |listing| %>
+    <%= link_to (listing) do %>
+      <h3>Title: </h3>
+      <h4><%= listing.title %></h4>
+      <h3>Description:</h3>
+      <h4><%= listing.description %></h4>
+    <% end %>
+      <hr>
+    <% end %>
+  </div>
+
+</div>
