@@ -21,6 +21,7 @@ gem 'countries', :require => 'countries/global'
 gem 'city-state'
 # Use carrierwave
 gem 'carrierwave'
+gem 'mini_magick'
 # Use cloudinary
 gem 'cloudinary'
 

@@ -6,7 +6,6 @@
 <div class="container">
   <%= link_to "Back to Listing", listing_path(@current_listing), class: "btn btn-info" %>
   <%= simple_form_for @current_listing, html: {class: "hero-form", multipart: true}, url: listing_path, method: :patch do |f| %>
-    <%= f.input :photos, multiple: true %>
     <%= f.input :title, required: true%>
     <%= f.input :description, required: true %>
     <%= f.input :price, required: true %>

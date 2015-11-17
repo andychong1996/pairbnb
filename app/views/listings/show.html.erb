@@ -5,12 +5,29 @@
   <header>
   <h1><%= @current_listing.title %></h1>
   </header>
-  <% if (@current_listing.user_id).to_i == current_user.id %>
-    <%= link_to "Edit Listing", edit_listing_path, class: "btn btn-info" %>
-  <% else %>
 
-  <% end %>
   <div class="listing-body">
+    <% if (@current_listing.user_id).to_i == current_user.id %>
+      <%= link_to "Edit Listing", edit_listing_path, class: "btn btn-info" %>
+    <% else %>
+      
+    <% end %>
+    <h4>Gallery:</h4>
+      <% if @current_listing.listings_photos.empty?%>
+        <%= simple_form_for :listing_info, url: new_listings_photo_path, method: :get do |f| %>
+          <%= f.hidden_field :listing_id, as: :hidden,value: @current_listing.id  %>
+          <%= f.button :submit, value: "Add Photos", class: "btn btn-info" %>
+        <% end %>
+      <% else %>
+        <% @current_listing.listings_photos.each do |photo| %>
+        <%= image_tag(photo.listing_photo_url(:display)) %>
+        <% end %>
+        <%= simple_form_for :listing_info, url: edit_listings_photo_path, method: :get do |f| %>
+          <br/>
+          <%= f.button :submit, value: "Edit Gallery", class: "btn btn-info" %>
+        <% end %>
+      <% end %>
+    <br/>
     <h4>Description:</h4>
     <p>
       <%= @current_listing.description %>
