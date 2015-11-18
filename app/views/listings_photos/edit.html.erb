@@ -4,17 +4,16 @@
   </header>
 
   <div class="upload-photos-body">
-    <%= simple_form_for :listings_photos, html: {multipart: true}, url: listings_photo_path, method: :patch do |f| %>
+    <%= simple_form_for @listings_photo, html: {multipart: true}, url: listings_photo_path, method: :patch do |f| %>
       <%= f.hidden_field :listing_id, value: params[:id] %>
       <% current_listing = Listing.find(params[:id]) %>
       <% if !(current_listing.listings_photos).empty? %>
         <% current_listing.listings_photos.each do |listings_photo| %>
           <%= image_tag(listings_photo.listing_photo_url(:display)) %>
-          <%= f.input listings_photo, label: "Remove this photo", as: :boolean, boolean_style: :inline %>
         <% end %>
       <% end %>
       <label for="listings_photos">Listing's Photos</label>
-      <%= f.file_field :listing_photos, multiple: true  %>
+      <%= f.file_field :photos, multiple: true  %>
       <br>
       <%= f.button :submit, value: "Update Gallery", class: "btn btn-info" %>
     <% end %>

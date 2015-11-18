@@ -19,14 +19,15 @@
 	height:100%;
 	width:100%;
 	overflow: hidden;
+  video {
+  	position:absolute;
+  	z-index:0;
+  }
+  video.fillWidth {
+  	width: 100%;
+  }
 }
-video {
-	position:absolute;
-	z-index:0;
-}
-video.fillWidth {
-	width: 100%;
-}
+
 // #bgvid {
 //     position: fixed;
 //     top: 50%;

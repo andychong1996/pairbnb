@@ -5,10 +5,10 @@
   </header>
 
   <div class="upload-photos-body">
-    <%= simple_form_for :listings_photos, html: {multipart: true}, url: listings_photos_path, method: :create do |f| %>
+    <%= simple_form_for @listings_photo, html: {multipart: true}, url: listings_photos_path, method: :create do |f| %>
       <%= f.hidden_field :listing_id, value: @current_listing.id %>
       <label for="listings_photos">Listing's Photos</label>
-      <%= f.file_field :listing_photos, multiple: true  %>
+      <%= f.file_field :photos, multiple: true  %>
       <br>
       <%= f.button :submit, value: "Add Photos", class: "btn btn-info" %>
     <% end %>
