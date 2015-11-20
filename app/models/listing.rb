@@ -1,6 +1,7 @@
 class Listing < ActiveRecord::Base
   belongs_to :user
   has_many :listings_photos
+  has_many :bookings
   include PgSearch
   pg_search_scope :search, against: [:title, :description, :address, :country, :city, :state],
   using: {tsearch: {dictionary: "english"}}

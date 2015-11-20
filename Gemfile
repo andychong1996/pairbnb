@@ -24,10 +24,10 @@ gem 'carrierwave'
 gem 'mini_magick'
 # Use cloudinary
 gem 'cloudinary'
-
 # Use pg_search
 gem 'pg_search'
-
+# Use validates overlap to validates booking time
+gem 'validates_overlap'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

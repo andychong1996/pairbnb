@@ -36,6 +36,7 @@ class ListingsController <ApplicationController
   def show
     @new_booking = Booking.new
     @current_listing = Listing.find(params[:id])
+    @blocked_dates = get_blocked_dates(@current_listing)
   end
 
   def edit
@@ -43,7 +44,7 @@ class ListingsController <ApplicationController
   end
 
   def update
-    
+
    if @current_listing.update_attributes(listing_params)
      render 'show'
    else

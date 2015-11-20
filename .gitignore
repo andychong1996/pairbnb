@@ -15,5 +15,5 @@
 #Ignore facebook.yml
 /config/facebook.yml
 
-#Ignore all yml
-/config/*.yml
+#Ignore cloudinary yml
+/config/cloudinary.yml

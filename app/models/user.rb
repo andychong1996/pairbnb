@@ -3,7 +3,8 @@ class User < ActiveRecord::Base
   has_secure_password
 
   has_many :listings
-
+  has_many :bookings
+  
   mount_uploader :avatar, AvatarUploader
 
   validates :first_name, presence: true

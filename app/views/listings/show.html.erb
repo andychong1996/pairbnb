@@ -13,17 +13,27 @@
 
     <% else %>
 
-      <%= form_for @new_booking, id: "booking-container" do |f| %>
-        <div class="input-daterange input-group" class="datepicker" id="datepicker">
-          <span class="input-group-addon">FROM</span>
-          <%= f.text_field :check_in_date, label:false, placeholder: "Check In Date", class: "input-md form-control",data: {provide: "datepicker"} %>
-          <span class="input-group-addon">TO</span>
-          <%= f.text_field :check_out_date, label:false, placeholder: "Check Out Date", class: "input-md form-control", data: {provide: "datepicker"}%>
-          <span class="input-group-btn">
-            <%= f.submit "Book it!", class: "btn btn-danger"%>
-          </span>
-        </div>
-      <% end %>
+    <div class="row">
+      <div class="col-sm-6 col-md-6 col-lg-6">
+
+        <%= form_for @new_booking, url: bookings_path, method: :post, id: "booking-container" do |f| %>
+            <div class="input-group">
+
+              <span class="input-group-addon">FROM</span>
+              <%= f.text_field :check_in_date, label:false, placeholder: "Check In Date", class: "input-md form-control", id: "check-in-datepicker" %>
+              <span class="input-group-addon">TO</span>
+              <%= f.text_field :check_out_date, label:false, placeholder: "Check Out Date", class: "input-md form-control", id: "check-out-datepicker"%>
+              <%= f.hidden_field :blocked_dates, value: @blocked_dates %>
+              <%= f.hidden_field :customer_id, value: current_user.id %>
+              <%= f.hidden_field :listing_id, value: @current_listing.id %>
+              <span class="input-group-btn">
+                <%= f.submit "Book it!", class: "btn btn-danger"%>
+              </span>  
+            </div>
+        <% end %>
+      </div>
+      <div class="col-sm-6 col-md-6 col-lg-6"></div>
+    </div>
 
     <% end %>
 

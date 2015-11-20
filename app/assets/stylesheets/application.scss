@@ -16,6 +16,7 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
  @import "color-palette";
+
 body{
   font-family: 'Arvo', serif;
 }
@@ -36,6 +37,36 @@ body{
   }
 }
 // nav bar
+.navbar-input-group {
+  input:not(:first-child):not(:last-child){
+    border-radius: 0px;
+  }
+  #nav-bar-search-submit{
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+  }
+  @media (min-width: 768px) {
+    font-size: 0px; /*removes whitespace between button and input*/
+
+    input {
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px;
+    }
+    .btn {
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+      border-left: 0px;
+    }
+  }
+  @media (max-width: 480px) {
+    margin-top:0px;
+    margin-bottom:0px;
+
+    .btn {
+      width:100%;
+    }
+  }
+}
 .navbar-default{
   background-color: rgba(255, 255, 255, 0.3);
   border-color: rgba(56, 251, 18, 0);
@@ -58,10 +89,15 @@ body{
   }
   .navbar-nav{
     li{
+      .logged-in-dropdown{
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
       a:hover{
         color: $main-color;
       }
       a{
+
         .navbar_icon{
           border-radius: 50px;
           border: 2px solid black;

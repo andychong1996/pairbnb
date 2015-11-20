@@ -7,6 +7,6 @@ class ListingsSearchController<ApplicationController
   end
 
   def listings_search_params
-    params.permit(:query)
+    params.require(:listing_search_bar).permit(:query, :check_in_date, :check_out_date)
   end
 end

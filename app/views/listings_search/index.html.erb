@@ -1,19 +1,23 @@
 <div class="navbar-buffer">
 
 </div>
-<header>
-  <h2>Search Result:</h2>
-</header>
 
-<div class="search-result-body">
+<div class="container">
+  <header>
+    <h2>Search Result:</h2>
+  </header>
 
-  <% if !@listings_search_result.nil? %>
-    <% @listings_search_result.each do |listing| %>
-      <%= link_to (listing) do %>
-        <h3><%= listing.title %></h3>
+  <div class="search-result-body">
+
+    <% if !@listings_search_result.nil? %>
+      <% @listings_search_result.each do |listing| %>
+        <%= link_to (listing) do %>
+          <h3><%= listing.title %></h3>
+        <% end %>
       <% end %>
+    <% else %>
+      <h4>No result found.</h4>
     <% end %>
-  <% else %>
-    <h4>No result found.</h4>
-  <% end %>
+  </div>
+
 </div>
