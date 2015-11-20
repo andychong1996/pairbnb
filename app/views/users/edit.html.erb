@@ -4,7 +4,7 @@
 <% if current_user && current_user.errors.present? %>
   <ul>
     <% @errors = current_user.errors %>
-    <%= render "shared/partials/errors_msg_loop" %>
+    <%= render partial: "shared/partials/errors_msg_loop" %>
   </ul>
 <% end %>
 <div class="row">

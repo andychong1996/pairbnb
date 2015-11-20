@@ -1,5 +1,6 @@
 $(document).on('ready page:load', function(){
 
+  $
   $('#nav-bar-search-check-in-datepicker').datepicker({
     changeMonth: true,
     changeYear: true,

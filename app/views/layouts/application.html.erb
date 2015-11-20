@@ -36,6 +36,7 @@
       <%= link_to(root_path, html_options = {class: "navbar-brand"}) do %>
         <i class="fa fa-plane"></i>
         PairBnB
+        <i class="fa fa-bed"></i>
       <% end %>
 
     </div>
@@ -46,8 +47,16 @@
         <% else %>
           <%= f.text_field :query, class: "form-control", placeholder: "Where are you going?" %>
         <% end %>
-        <%= f.text_field :check_in_date, class: "input-md form-control", placeholder: "Check In Date", id: "nav-bar-search-check-in-datepicker" %>
-        <%= f.text_field :check_out_date, class: "input-md form-control", placeholder: "Check Out Date", id: "nav-bar-search-check-out-datepicker" %>
+        <% if @current_check_in_date.present? %>
+          <%= f.text_field :check_in_date,value: @current_check_in_date, class: "input-md form-control", placeholder: "Check In Date", id: "nav-bar-search-check-in-datepicker", readonly: true %>
+        <% else %>
+          <%= f.text_field :check_in_date, class: "input-md form-control", placeholder: "Check In Date", id: "nav-bar-search-check-in-datepicker", readonly: true %>
+        <% end %>
+        <% if @current_check_out_date.present? %>
+          <%= f.text_field :check_out_date, class: "input-md form-control", placeholder: "Check Out Date", id: "nav-bar-search-check-out-datepicker", readonly: true %>
+        <% else %>
+          <%= f.text_field :check_out_date, class: "input-md form-control", placeholder: "Check Out Date", id: "nav-bar-search-check-out-datepicker", readonly: true %>
+        <% end %>
         <span>
         <%= f.submit("Search", class: "btn btn-info", id: "nav-bar-search-submit") %>
         </span>
@@ -62,9 +71,9 @@
       <ul class="nav navbar-nav navbar-right">
           <li><%= link_to "List Your Space!", new_listing_path, class: "add-border"%></li>
           <% if !user_logged_in? %>
-            <%= render "shared/partials/navbar/not_logged_in_nav_elements" %>
+            <%= render partial: "shared/partials/navbar/not_logged_in_nav_elements" %>
           <% else %>
-            <%= render "shared/partials/navbar/logged_in_nav_elements" %>
+            <%= render partial: "shared/partials/navbar/logged_in_nav_elements" %>
           <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
@@ -72,7 +81,7 @@
 </nav>
 
 <div>
-  <%= render "shared/partials/flashmsgs" %>
+  <%= render partial: "shared/partials/flashmsgs" %>
 </div>
 
   <%= yield %>

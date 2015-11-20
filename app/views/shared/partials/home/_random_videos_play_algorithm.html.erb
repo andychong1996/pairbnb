@@ -1,0 +1,18 @@
+<% random_num = rand(10)%>
+<% case random_num %>
+<% when 0,1 %>
+  <source src="assets/Paris.webm" type="video/webm">
+  <source src="assets/Paris.mp4" type="video/mp4">
+<% when 2,3 %>
+  <source src="assets/Croatia.webm" type="video/webm">
+  <source src="assets/Croatia.mp4" type="video/mp4">
+<% when 4,5 %>
+  <source src="assets/Seoul.webm" type="video/webm">
+  <source src="assets/Seoul.mp4" type="video/mp4">
+<% when 6,7 %>
+  <source src="assets/London.webm" type="video/webm">
+  <source src="assets/London.mp4" type="video/mp4">
+<% else %>
+  <source src="assets/SanFrancisco.webm" type="video/webm">
+  <source src="assets/SanFrancisco.mp4" type="video/mp4">
+<% end %>

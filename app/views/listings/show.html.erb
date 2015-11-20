@@ -20,15 +20,15 @@
             <div class="input-group">
 
               <span class="input-group-addon">FROM</span>
-              <%= f.text_field :check_in_date, label:false, placeholder: "Check In Date", class: "input-md form-control", id: "check-in-datepicker" %>
+              <%= f.text_field :check_in_date, label:false, placeholder: "Check In Date", class: "input-md form-control", id: "check-in-datepicker", readonly: true %>
               <span class="input-group-addon">TO</span>
-              <%= f.text_field :check_out_date, label:false, placeholder: "Check Out Date", class: "input-md form-control", id: "check-out-datepicker"%>
+              <%= f.text_field :check_out_date, label:false, placeholder: "Check Out Date", class: "input-md form-control", id: "check-out-datepicker", readonly: true%>
               <%= f.hidden_field :blocked_dates, value: @blocked_dates %>
               <%= f.hidden_field :customer_id, value: current_user.id %>
               <%= f.hidden_field :listing_id, value: @current_listing.id %>
               <span class="input-group-btn">
                 <%= f.submit "Book it!", class: "btn btn-danger"%>
-              </span>  
+              </span>
             </div>
         <% end %>
       </div>

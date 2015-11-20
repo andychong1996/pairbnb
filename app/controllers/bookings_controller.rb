@@ -5,7 +5,6 @@ class BookingsController < ActionController::Base
   end
 
   def create
-    byebug
     new_booking = Booking.new()
     new_booking.user_id = booking_params[:customer_id]
     new_booking.listing_id = booking_params[:listing_id]

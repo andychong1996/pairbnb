@@ -21,8 +21,35 @@ class Listing < ActiveRecord::Base
     if query.present?
       search(query)
     else
-      scoped
+      Listing.all
     end
   end
 
+  def self.booking_overlap?(search_check_in_date, search_check_out_date, booking)
+    (booking.check_in_date - search_check_out_date) * (search_check_in_date - booking.check_out_date) >= 0
+  end
+
+  def self.available_listings(query, search_check_in_date, search_check_out_date)
+    if query.present?
+      listings = Listing.text_search(query)
+    else
+      listings = Listing.all
+    end
+    available_listings = []
+
+    listings.each do |listing|
+      overlap = []
+      if listing.bookings.present?
+        listing.bookings.each do |booking|
+          
+            overlap << Listing.booking_overlap?(Date.parse(search_check_in_date), Date.parse(search_check_out_date), booking)
+        end
+        available_listings << listing unless overlap.include?(true)
+      else
+        available_listings << listing
+      end
+    end
+
+    available_listings
+  end
 end

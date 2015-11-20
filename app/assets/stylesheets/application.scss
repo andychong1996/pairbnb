@@ -19,6 +19,9 @@
 
 body{
   font-family: 'Arvo', serif;
+  .form-control[readonly]{
+    background-color: rgb(244, 255, 251);
+  }
 }
 
 // add top padding to div after nav bar
@@ -40,6 +43,7 @@ body{
 .navbar-input-group {
   input:not(:first-child):not(:last-child){
     border-radius: 0px;
+    border-left: none;
   }
   #nav-bar-search-submit{
     border-top-right-radius: 3px;
@@ -73,9 +77,7 @@ body{
   .navbar-brand{
     color: $main-color;
   }
-  .fa-plane{
-    color: $main-color;
-  }
+
   .navbar-toggle:focus{
     background-color: rgba(108, 91, 111, 0.5);
   }
