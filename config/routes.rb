@@ -18,4 +18,7 @@ Rails.application.routes.draw do
   resources :listings_photos, except: [:delete, :index]
 
   resources :bookings
+
+  require 'sidekiq/web'
+  mount Sidekiq::Web=> '/sidekiq'
 end
