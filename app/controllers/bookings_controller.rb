@@ -14,6 +14,8 @@ class BookingsController < ActionController::Base
 
       if new_booking.valid? && new_booking.save
         flash[:success] = "Congrat! Your Booking has successful been placed!"
+        byebug
+        BookingConfirmationEmailWorker.perform_in(5.seconds, new_booking.listing_id, new_booking.id)
         redirect_to listing_path(Listing.find(new_booking.listing_id))
       else
         flash[:error] = "Sorry, your booking is not valid! Please retry!"

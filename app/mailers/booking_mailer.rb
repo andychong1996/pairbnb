@@ -1,13 +1,13 @@
 class BookingMailer < ApplicationMailer
-  def host_booking_informing_email(listing, booking)
+  def host_booking_confirmation_email(listing, booking)
     @host = listing.user
     @current_listing = listing
     @customer = booking.user
     @current_booking = booking
-    mail(to: "andygg1996personal@gmail.com", subject: "Customer named,  " + @customer.first_name.capitalize + " " + @customer.last_name.capitalize + ", just book your room!")
+    mail(to: @host.email, subject: "Customer named,  " + @customer.first_name.capitalize + " " + @customer.last_name.capitalize + ", just book your room!")
   end
 
-  def customer_booking_informing_email(listing, booking)
+  def customer_booking_confirmation_email(listing, booking)
     @host = listing.user
     @current_listing = listing
     @customer = booking.user
