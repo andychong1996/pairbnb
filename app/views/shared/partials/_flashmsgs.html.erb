@@ -1,6 +1,30 @@
 <% flash.each do |key, value| %>
-  <div class="alert alert-info alert-dismissible fade in navbar-buffer" role="alert">
+  <% case key %>
+  <% when "warning" %>
+    <div class="alert alert-warning alert-dismissible fade in navbar-buffer" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <%= "#{value}" %>
+    </div>
+  <% when "info" %>
+    <div class="alert alert-info alert-dismissible fade in navbar-buffer" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <%= "#{value}" %>
+    </div>
+  <% when "error" %>
+  <div class="alert alert-danger alert-dismissible fade in navbar-buffer" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <%= "#{value}" %>
   </div>
+  <% when "success" %>
+  <div class="alert alert-success alert-dismissible fade in navbar-buffer" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <%= "#{value}" %>
+  </div>
+  <% else %>
+    <div class="alert alert-info alert-dismissible fade in navbar-buffer" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <%= "#{value}" %>
+    </div>
+  <% end %>
+
 <% end %>

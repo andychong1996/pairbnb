@@ -24,7 +24,9 @@
               <span class="input-group-addon">TO</span>
               <%= f.text_field :check_out_date, label:false, placeholder: "Check Out Date", class: "input-md form-control", id: "check-out-datepicker", readonly: true%>
               <%= f.hidden_field :blocked_dates, value: @blocked_dates %>
-              <%= f.hidden_field :customer_id, value: current_user.id %>
+              <% if current_user.present? %>
+                <%= f.hidden_field :customer_id, value: current_user.id %>
+              <% end %>
               <%= f.hidden_field :listing_id, value: @current_listing.id %>
               <span class="input-group-btn">
                 <%= f.submit "Book it!", class: "btn btn-danger"%>

@@ -11,6 +11,9 @@ $(document).on('ready page:load', function(){
       var check_in_date = $('#nav-bar-search-check-in-datepicker').datepicker("getDate");
       var check_out_min = new Date(check_in_date.getFullYear(), check_in_date.getMonth(),check_in_date.getDate() + 1);
       $( "#nav-bar-search-check-out-datepicker" ).datepicker( "option", "minDate", check_out_min );
+      setTimeout(function(){
+        $( "#nav-bar-search-check-out-datepicker" ).datepicker('show');
+      }, 16);
     }
   });
 
@@ -20,6 +23,11 @@ $(document).on('ready page:load', function(){
     changeYear: true,
     numberOfMonths: 2,
     minDate: 0
+  });
+
+  $('#nav-bar-clear-dates').click(function(){
+    $('#nav-bar-search-check-out-datepicker').val('');
+    $('#nav-bar-search-check-in-datepicker').val('');
   });
 
 });

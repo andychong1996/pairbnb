@@ -5,18 +5,23 @@ class BookingsController < ActionController::Base
   end
 
   def create
-    new_booking = Booking.new()
-    new_booking.user_id = booking_params[:customer_id]
-    new_booking.listing_id = booking_params[:listing_id]
-    new_booking.check_in_date = Date.parse(booking_params[:check_in_date])
-    new_booking.check_out_date = Date.parse(booking_params[:check_out_date])
+    if booking_params[:customer_id].present?
+      new_booking = Booking.new()
+      new_booking.user_id = booking_params[:customer_id]
+      new_booking.listing_id = booking_params[:listing_id]
+      new_booking.check_in_date = Date.parse(booking_params[:check_in_date])
+      new_booking.check_out_date = Date.parse(booking_params[:check_out_date])
 
-    if new_booking.valid? && new_booking.save
-      flash[:booking_successful] = "Congrat! Your Booking has successful been placed!"
-      redirect_to listing_path(Listing.find(new_booking.listing_id))
+      if new_booking.valid? && new_booking.save
+        flash[:success] = "Congrat! Your Booking has successful been placed!"
+        redirect_to listing_path(Listing.find(new_booking.listing_id))
+      else
+        flash[:error] = "Sorry, your booking is not valid! Please retry!"
+        redirect_to listing_path(Listing.find(new_booking.listing_id))
+      end
     else
-      flash[:booking_fail] = "Sorry, your booking is not valid! Please retry!"
-      redirect_to listing_path(Listing.find(new_booking.listing_id))
+      flash[:warning] = "Sorry, please login before booking."
+      redirect_to new_session_path
     end
   end
 

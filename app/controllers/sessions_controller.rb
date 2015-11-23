@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @current_user.id
       redirect_to users_path
     else
-      flash[:facebook_error] = "User with this email already exist"
+      flash[:error] = "User with this email already exist"
       redirect_to root_path
     end
   end

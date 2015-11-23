@@ -1,26 +1,21 @@
 <header>
 
   <div class="header-unit">
-  <div id="video-container">
-  <video autoplay loop class="fillWidth">
-    <%= render partial: "shared/partials/home/random_videos_play_algorithm" %>
-  Your browser does not support the video tag. I suggest you upgrade your browser.
-  </video>
-  </div><!-- end video-container -->
+    <div id="video-container">
+      <video autoplay loop class="fillWidth">
+        <%= render partial: "shared/partials/home/videos_randomizer" %>
+      Your browser does not support the video tag. I suggest you upgrade your browser.
+      </video>
+    </div><!-- end video-container -->
+    <div class="hero-header-text">
+      <h1>Welcome to PairBnB</h1>
+      <h3>Never travel alone</h3>
+    </div>
+
   </div><!-- end .header-unit -->
 
 
-  <% if current_user && user_logged_in? %>
-    <h1>Hi <%= current_user.first_name.capitalize %>, Welcome to PairBnB</h1>
-    <p>
-      Never to travel alone.
-    </p>
-  <% else %>
-    <h1>PairBnB</h1>
-    <p>
-      Never travel alone.
-    </p>
-  <% end %>
+
 </header>
 
 <div>

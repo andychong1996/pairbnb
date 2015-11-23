@@ -21,13 +21,13 @@ class ListingsController <ApplicationController
         redirect_to @current_listing
       else
         # redirect to new listing path and flash msgs
-        flash[:new_listing_errors] = "Listing requirement doesn't meet!"
+        flash[:error] = "Listing requirement doesn't meet!"
         redirect_to new_listing_path
       end
       # end inner if
     else
       # redirect to log in page and flash msgs
-      flash[:no_acc_error] = "Please sign in to continue."
+      flash[:warning] = "Please sign in first to list your space!"
       redirect_to new_session_path
     end
     # end outer if

@@ -48,17 +48,20 @@
           <%= f.text_field :query, class: "form-control", placeholder: "Where are you going?" %>
         <% end %>
         <% if @current_check_in_date.present? %>
-          <%= f.text_field :check_in_date,value: @current_check_in_date, class: "input-md form-control", placeholder: "Check In Date", id: "nav-bar-search-check-in-datepicker", readonly: true %>
+          <%= f.text_field :check_in_date, value: @current_check_in_date, class: "input-md form-control", placeholder: "Check In Date", id: "nav-bar-search-check-in-datepicker", readonly: true %>
         <% else %>
           <%= f.text_field :check_in_date, class: "input-md form-control", placeholder: "Check In Date", id: "nav-bar-search-check-in-datepicker", readonly: true %>
         <% end %>
         <% if @current_check_out_date.present? %>
-          <%= f.text_field :check_out_date, class: "input-md form-control", placeholder: "Check Out Date", id: "nav-bar-search-check-out-datepicker", readonly: true %>
+          <%= f.text_field :check_out_date, value: @current_check_out_date, class: "input-md form-control", placeholder: "Check Out Date", id: "nav-bar-search-check-out-datepicker", readonly: true %>
         <% else %>
           <%= f.text_field :check_out_date, class: "input-md form-control", placeholder: "Check Out Date", id: "nav-bar-search-check-out-datepicker", readonly: true %>
         <% end %>
         <span>
-        <%= f.submit("Search", class: "btn btn-info", id: "nav-bar-search-submit") %>
+          <%= f.button "Clear Dates",type: "button", class: "btn btn-info btn-sm-font", id: "nav-bar-clear-dates" %>
+        </span>
+        <span>
+          <%= f.submit("Search", class: "btn btn-info", id: "nav-bar-search-submit") %>
         </span>
       </div>
     <% end %>

@@ -24,6 +24,9 @@ body{
   }
 }
 
+#btn-no-border-radius{
+  border-radius: none;
+}
 // add top padding to div after nav bar
 .navbar-buffer{
   margin-top: 60px;
@@ -41,7 +44,12 @@ body{
 }
 // nav bar
 .navbar-input-group {
+
   input:not(:first-child):not(:last-child){
+    border-radius: 0px;
+    border-left: none;
+  }
+  button:not(:first-child):not(:last-child){
     border-radius: 0px;
     border-left: none;
   }
@@ -57,9 +65,10 @@ body{
       border-bottom-right-radius: 0px;
     }
     .btn {
-      border-top-left-radius: 0px;
-      border-bottom-left-radius: 0px;
-      border-left: 0px;
+      border-radius: 0px;
+    }
+    .btn-sm-font{
+      // font-size: 5px;
     }
   }
   @media (max-width: 480px) {
@@ -102,7 +111,7 @@ body{
 
         .navbar_icon{
           border-radius: 50px;
-          border: 2px solid black;
+          border: 2px solid white;
         }
         color: $main-color;
       }

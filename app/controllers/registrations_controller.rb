@@ -7,7 +7,7 @@ class RegistrationsController < ApplicationController
   def create
     @current_user = User.new(user_params)
     if @current_user.save
-      flash[:notice] = "You have successfully signed up"
+      flash[:success] = "You have successfully signed up"
       session[:user_id] = @current_user.id
       redirect_to @current_user
     else
