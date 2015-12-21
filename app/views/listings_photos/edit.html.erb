@@ -7,9 +7,13 @@
     <%= simple_form_for @listings_photo, html: {multipart: true}, url: listings_photo_path, method: :patch do |f| %>
       <%= f.hidden_field :listing_id, value: params[:id] %>
       <% current_listing = Listing.find(params[:id]) %>
-      <% if !(current_listing.listings_photos).empty? %>
+      <% if (current_listing.listings_photos).present? %>
         <% current_listing.listings_photos.each do |listings_photo| %>
           <%= image_tag(listings_photo.listing_photo_url(:display)) %>
+          <br>
+          <%= check_box_tag 'remove_photos[]', listings_photo.id %>
+          delete this photo
+          <br><br>
         <% end %>
       <% end %>
       <label for="listings_photos">Listing's Photos</label>

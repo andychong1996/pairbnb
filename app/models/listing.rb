@@ -26,11 +26,9 @@ class Listing < ActiveRecord::Base
   end
 
   def self.available_listings(query, search_check_in_date, search_check_out_date)
-    if query.present?
-      listings = Listing.text_search(query)
-    else
-      listings = Listing.all
-    end
+
+    listings = Listing.all
+
     available_listings = []
 
     listings.each do |listing|

@@ -5,7 +5,7 @@ class ListingsPhotosController <ApplicationController
   end
 
   def create
-    
+
     if !listing_photo_params[:photos].nil?
       photos = listing_photo_params[:photos]
       photos.each do |photo|
@@ -23,7 +23,6 @@ class ListingsPhotosController <ApplicationController
   end
 
   def update
-    
     if !listing_photo_params[:photos].nil?
       photos = listing_photo_params[:photos]
       photos.each do |photo|
@@ -33,12 +32,20 @@ class ListingsPhotosController <ApplicationController
         new_photo.save
       end
     end
-
+    if params[:remove_photos].present?
+      params[:remove_photos].each do |photo_id|
+        ListingsPhoto.find(photo_id).destroy!
+      end
+    end
     redirect_to listing_path(Listing.find(listing_photo_params[:listing_id]))
   end
 
   def listing_photo_params
     params.require(:listings_photo).permit(:listing_id, photos: [])
+  end
+
+  def listing_id_params
+      params.permit(:id)
   end
 
   def listing_params

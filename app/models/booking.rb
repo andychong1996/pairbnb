@@ -12,4 +12,5 @@ class Booking < ActiveRecord::Base
   def overlap?(search_check_in_date, search_check_out_date, booking)
     (booking.check_in_date - search_check_out_date) * (search_check_in_date - booking.check_out_date) >= 0
   end
+  
 end
